@@ -10,17 +10,7 @@ var port = 8000;
 
 app.use(bodyParser.json());
 app.use(logger('tiny'));
-
-app.get('/hello/:foo/:bar', (req, res) => {
-    res.json({message: "Hello!!", data: [
-        req.params.foo,
-        res.params.bar
-    ]});
-});
-
-app.post('/hello', (req, res) => {
-    res.json({result: 'Post was sent', data: req.body});
-});
+app.use(require('./routes'));
 
 //http.createServer((req, res)=>{
 //  res.write(users.join(", ")); //display the list of users on the page
